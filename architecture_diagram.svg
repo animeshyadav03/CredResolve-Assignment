@@ -1,0 +1,148 @@
+<svg viewBox="0 0 1450 940" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+  </marker>
+</defs>
+<rect width="1450" height="940" fill="#f8fafc"/>
+<text x="700" y="40" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Collections Analytics — Production Pipeline Architecture</text>
+<text x="700" y="64" text-anchor="middle" font-size="13" fill="#64748b">Raw &#8594; Staging &#8594; Clean &#8594; Golden &#8594; Feature &#8594; Metrics &#8594; Dashboard</text>
+<rect x="40" y="110" width="180" height="140" rx="10" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="130.0" y="134" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">RAW</text>
+<text x="130.0" y="156" text-anchor="middle" font-size="11" fill="#334155">17 source systems</text>
+<text x="130.0" y="172" text-anchor="middle" font-size="11" fill="#334155">(collections platform,</text>
+<text x="130.0" y="188" text-anchor="middle" font-size="11" fill="#334155">telephony vendors,</text>
+<text x="130.0" y="204" text-anchor="middle" font-size="11" fill="#334155">payment gateway)</text>
+
+<rect x="235" y="110" width="180" height="140" rx="10" fill="#dbeafe" stroke="#60a5fa" stroke-width="1.6"/>
+<text x="325.0" y="134" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">STAGING</text>
+<text x="325.0" y="156" text-anchor="middle" font-size="11" fill="#334155">1:1 load, typed,</text>
+<text x="325.0" y="172" text-anchor="middle" font-size="11" fill="#334155">no business logic,</text>
+<text x="325.0" y="188" text-anchor="middle" font-size="11" fill="#334155">audit columns</text>
+
+<rect x="430" y="110" width="180" height="140" rx="10" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.6"/>
+<text x="520.0" y="134" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">CLEAN</text>
+<text x="520.0" y="156" text-anchor="middle" font-size="11" fill="#334155">Dedup, standardize</text>
+<text x="520.0" y="172" text-anchor="middle" font-size="11" fill="#334155">codes, sanity filters</text>
+<text x="520.0" y="188" text-anchor="middle" font-size="11" fill="#334155">(views, not deletes)</text>
+
+<rect x="625" y="110" width="180" height="140" rx="10" fill="#d1fae5" stroke="#34d399" stroke-width="1.6"/>
+<text x="715.0" y="134" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">GOLDEN</text>
+<text x="715.0" y="156" text-anchor="middle" font-size="11" fill="#334155">Business-ready:</text>
+<text x="715.0" y="172" text-anchor="middle" font-size="11" fill="#334155">dim_account, dim_agent,</text>
+<text x="715.0" y="188" text-anchor="middle" font-size="11" fill="#334155">fct_payment,</text>
+<text x="715.0" y="204" text-anchor="middle" font-size="11" fill="#334155">fct_account_month_recovery</text>
+
+<rect x="850" y="110" width="180" height="140" rx="10" fill="#ecfccb" stroke="#a3e635" stroke-width="1.6"/>
+<text x="940.0" y="134" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">FEATURE</text>
+<text x="940.0" y="156" text-anchor="middle" font-size="11" fill="#334155">Worked-population,</text>
+<text x="940.0" y="172" text-anchor="middle" font-size="11" fill="#334155">mix-adjustment,</text>
+<text x="940.0" y="188" text-anchor="middle" font-size="11" fill="#334155">cohort joins,</text>
+<text x="940.0" y="204" text-anchor="middle" font-size="11" fill="#334155">rolling windows</text>
+
+<rect x="1050" y="110" width="180" height="140" rx="10" fill="#fef3c7" stroke="#fbbf24" stroke-width="1.6"/>
+<text x="1140.0" y="134" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">METRICS</text>
+<text x="1140.0" y="156" text-anchor="middle" font-size="11" fill="#334155">Recovery rate, RPC,</text>
+<text x="1140.0" y="172" text-anchor="middle" font-size="11" fill="#334155">PTP kept rate,</text>
+<text x="1140.0" y="188" text-anchor="middle" font-size="11" fill="#334155">channel conversion,</text>
+<text x="1140.0" y="204" text-anchor="middle" font-size="11" fill="#334155">cost/rupee recovered</text>
+
+<rect x="1245" y="110" width="180" height="140" rx="10" fill="#ffedd5" stroke="#fb923c" stroke-width="1.6"/>
+<text x="1335.0" y="134" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">DASHBOARD</text>
+<text x="1335.0" y="156" text-anchor="middle" font-size="11" fill="#334155">Executive 1-screen view</text>
+<text x="1335.0" y="172" text-anchor="middle" font-size="11" fill="#334155">+ drill-down BI</text>
+
+<line x1="220" y1="180.0" x2="229" y2="180.0" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="415" y1="180.0" x2="424" y2="180.0" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="610" y1="180.0" x2="619" y2="180.0" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="805" y1="180.0" x2="844" y2="180.0" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="1030" y1="180.0" x2="1044" y2="180.0" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="1230" y1="180.0" x2="1239" y2="180.0" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="40" y1="290" x2="1360" y2="290" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,4"/>
+<text x="40" y="315" font-size="14" font-weight="700" fill="#0f172a">Cross-Cutting: Data Contracts, Orchestration &amp; Quality</text>
+<rect x="40" y="330" width="210" height="130" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.6"/>
+<text x="145.0" y="350" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1e3a8a">Data Contracts</text>
+<text x="145.0" y="372.0" text-anchor="middle" font-size="10" fill="#334155">Every source table has a</text>
+<text x="145.0" y="386.5" text-anchor="middle" font-size="10" fill="#334155">schema contract (column, type,</text>
+<text x="145.0" y="401.0" text-anchor="middle" font-size="10" fill="#334155">nullability). Breaking changes</text>
+<text x="145.0" y="415.5" text-anchor="middle" font-size="10" fill="#334155">fail the load, not silently</text>
+<text x="145.0" y="430.0" text-anchor="middle" font-size="10" fill="#334155">corrupt downstream.</text>
+
+<rect x="260" y="330" width="210" height="130" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.6"/>
+<text x="365.0" y="350" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1e3a8a">Primary Keys &amp; Grain</text>
+<text x="365.0" y="372.0" text-anchor="middle" font-size="10" fill="#334155">Documented per golden table</text>
+<text x="365.0" y="386.5" text-anchor="middle" font-size="10" fill="#334155">(e.g. fct_account_month_</text>
+<text x="365.0" y="401.0" text-anchor="middle" font-size="10" fill="#334155">recovery = 1 row / account /</text>
+<text x="365.0" y="415.5" text-anchor="middle" font-size="10" fill="#334155">month).</text>
+
+<rect x="480" y="330" width="210" height="130" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.6"/>
+<text x="585.0" y="350" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1e3a8a">Incremental Processing</text>
+<text x="585.0" y="372.0" text-anchor="middle" font-size="10" fill="#334155">Staging: append-only,</text>
+<text x="585.0" y="386.5" text-anchor="middle" font-size="10" fill="#334155">watermark on max(_loaded_at).</text>
+<text x="585.0" y="401.0" text-anchor="middle" font-size="10" fill="#334155">Clean/Golden: merge (upsert)</text>
+<text x="585.0" y="415.5" text-anchor="middle" font-size="10" fill="#334155">on primary key.</text>
+
+<rect x="700" y="330" width="210" height="130" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.6"/>
+<text x="805.0" y="350" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1e3a8a">Late-Arriving Data</text>
+<text x="805.0" y="372.0" text-anchor="middle" font-size="10" fill="#334155">Events landing &gt;48h after</text>
+<text x="805.0" y="386.5" text-anchor="middle" font-size="10" fill="#334155">event_at are re-processed into</text>
+<text x="805.0" y="401.0" text-anchor="middle" font-size="10" fill="#334155">the correct historical</text>
+<text x="805.0" y="415.5" text-anchor="middle" font-size="10" fill="#334155">partition, not "today".</text>
+
+<rect x="920" y="330" width="210" height="130" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.6"/>
+<text x="1025.0" y="350" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1e3a8a">Backfills</text>
+<text x="1025.0" y="372.0" text-anchor="middle" font-size="10" fill="#334155">Golden layer is fully</text>
+<text x="1025.0" y="386.5" text-anchor="middle" font-size="10" fill="#334155">re-derivable from staging at</text>
+<text x="1025.0" y="401.0" text-anchor="middle" font-size="10" fill="#334155">any time — re-run = re-truth,</text>
+<text x="1025.0" y="415.5" text-anchor="middle" font-size="10" fill="#334155">no manual patches.</text>
+
+<rect x="1140" y="330" width="210" height="130" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.6"/>
+<text x="1245.0" y="350" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1e3a8a">DQ Checks &amp; Anomaly Detection</text>
+<text x="1245.0" y="372.0" text-anchor="middle" font-size="10" fill="#334155">Row-count deltas, null-rate</text>
+<text x="1245.0" y="386.5" text-anchor="middle" font-size="10" fill="#334155">drift, duplicate-rate thresholds,</text>
+<text x="1245.0" y="401.0" text-anchor="middle" font-size="10" fill="#334155">MoM z-score alerts on every</text>
+<text x="1245.0" y="415.5" text-anchor="middle" font-size="10" fill="#334155">golden metric.</text>
+
+<line x1="40" y1="500" x2="1360" y2="500" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,4"/>
+<text x="40" y="525" font-size="14" font-weight="700" fill="#0f172a">Monitoring &amp; Governance</text>
+<rect x="40" y="540" width="220" height="120" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="150.0" y="560" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f172a">Freshness SLA</text>
+<text x="150.0" y="582.0" text-anchor="middle" font-size="10" fill="#334155">Golden tables refresh by</text>
+<text x="150.0" y="596.5" text-anchor="middle" font-size="10" fill="#334155">6am IST daily; alert if</text>
+<text x="150.0" y="611.0" text-anchor="middle" font-size="10" fill="#334155">&gt;2h late.</text>
+
+<rect x="280" y="540" width="260" height="120" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="410.0" y="560" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f172a">Metric Definition Registry</text>
+<text x="410.0" y="582.0" text-anchor="middle" font-size="10" fill="#334155">Every metric has ONE owner +</text>
+<text x="410.0" y="596.5" text-anchor="middle" font-size="10" fill="#334155">ONE SQL definition</text>
+<text x="410.0" y="611.0" text-anchor="middle" font-size="10" fill="#334155">(04_metrics.sql) — no</text>
+<text x="410.0" y="625.5" text-anchor="middle" font-size="10" fill="#334155">duplicate dashboards.</text>
+
+<rect x="560" y="540" width="220" height="120" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="670.0" y="560" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f172a">Reconciliation</text>
+<text x="670.0" y="582.0" text-anchor="middle" font-size="10" fill="#334155">Golden recovered-amount vs</text>
+<text x="670.0" y="596.5" text-anchor="middle" font-size="10" fill="#334155">finance ledger, daily diff</text>
+<text x="670.0" y="611.0" text-anchor="middle" font-size="10" fill="#334155">alert if &gt;0.5% variance.</text>
+
+<rect x="800" y="540" width="240" height="120" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="920.0" y="560" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f172a">Anomaly Alerts</text>
+<text x="920.0" y="582.0" text-anchor="middle" font-size="10" fill="#334155">MoM swing &gt;2 std dev on any</text>
+<text x="920.0" y="596.5" text-anchor="middle" font-size="10" fill="#334155">headline metric pages the</text>
+<text x="920.0" y="611.0" text-anchor="middle" font-size="10" fill="#334155">analytics on-call, not just</text>
+<text x="920.0" y="625.5" text-anchor="middle" font-size="10" fill="#334155">the leadership dashboard.</text>
+
+<rect x="1060" y="540" width="260" height="120" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="1190.0" y="560" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f172a">Change Log</text>
+<text x="1190.0" y="582.0" text-anchor="middle" font-size="10" fill="#334155">Every cleaning-logic change</text>
+<text x="1190.0" y="596.5" text-anchor="middle" font-size="10" fill="#334155">(e.g. new disposition code)</text>
+<text x="1190.0" y="611.0" text-anchor="middle" font-size="10" fill="#334155">is versioned &amp; dated —</text>
+<text x="1190.0" y="625.5" text-anchor="middle" font-size="10" fill="#334155">historical numbers stay</text>
+<text x="1190.0" y="640.0" text-anchor="middle" font-size="10" fill="#334155">reproducible.</text>
+
+<line x1="40" y1="690" x2="1360" y2="690" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,4"/>
+<text x="40" y="715" font-size="14" font-weight="700" fill="#0f172a">Key Design Decision: Denominator Integrity</text>
+<rect x="40" y="730" width="1320" height="95" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+<text x="60" y="755" font-size="12.5" fill="#7f1d1d">The Feature layer computes fct_worked_account_month FIRST, independent of outcome, before any conversion metric is calculated.</text>
+<text x="60" y="775" font-size="12.5" fill="#7f1d1d">This guarantees every rate metric's numerator is a cohort-join subset of its denominator — the single biggest data-quality bug found in this</text>
+<text x="60" y="795" font-size="12.5" fill="#7f1d1d">project (a naive count-ratio recovery rate overstated the true rate by 2.5-2.9pp every month). This check is now a standing DQ rule, not a one-off fix.</text>
+</svg>
