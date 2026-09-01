@@ -1,0 +1,117 @@
+{
+  "accounts": {
+    "raw_rows": 30000,
+    "duplicate_account_ids": 0,
+    "rejected_bad_amounts": 0,
+    "golden_rows": 30000
+  },
+  "borrowers": {
+    "raw_rows": 30600,
+    "unique_borrower_ids": 11015,
+    "max_rows_per_id": 11,
+    "distinct_name_values": 10,
+    "rejected_duplicate_snapshots": 19585,
+    "golden_rows": 11015,
+    "decision": "keep max(updated_at) row per borrower_id; attributes flagged LOW confidence, name/phone/email excluded from any join logic"
+  },
+  "agents": {
+    "raw_rows": 30000,
+    "unique_agent_ids": 1000,
+    "distinct_agent_names": 10,
+    "avg_rows_per_agent_id": 30.0,
+    "max_rows_per_agent_id": 48,
+    "rejected_duplicate_snapshots": 29000,
+    "golden_rows": 1000,
+    "decision": "agent_id kept as only trustworthy key; name/employee_code/vendor/team/joined_at DROPPED as unreliable; tenure and channel reconstructed from transactional first-seen timestamps instead"
+  },
+  "payments": {
+    "raw_rows": 25500,
+    "exact_duplicate_rows_removed": 486,
+    "after_exact_dedup": 25014,
+    "conflicting_payment_id_rows": 28,
+    "golden_rows": 25000,
+    "inflated_success_amount_from_dupes": 25011462.189999998,
+    "decision": "drop exact full-row duplicates (500 rows / ~250 duplicate payment events); payment_reference NOT used for dedup (colliding across unrelated accounts = generator noise, not real dupes); REVERSED netted at portfolio-month level, not transaction level"
+  },
+  "calls": {
+    "raw_rows": 91350,
+    "exact_duplicate_rows_removed": 1271,
+    "golden_rows": 90079,
+    "decision": "exact duplicates dropped; timezone field found NOT to carry a recoverable local-hour signal (hour-of-day distribution is uniform within each tz label) -> event_at used as-is, no tz shift applied, flagged as limitation"
+  },
+  "call_attempts": {
+    "raw_rows": 120000,
+    "exact_duplicate_rows_removed": 0,
+    "golden_rows": 120000
+  },
+  "call_dispositions": {
+    "raw_rows": 35000,
+    "exact_duplicate_rows_removed": 0,
+    "golden_rows": 35000,
+    "codes_before": {
+      "NO_CONTACT": 4010,
+      "WRONG_NUMBER": 3946,
+      "PROMISE_TO_PAY": 3926,
+      "PTP": 3904,
+      "PTP_BROKEN": 3900,
+      "CALLBACK": 3872,
+      "DISPUTE": 3826,
+      "PAID": 3818,
+      "REFUSED": 3798
+    },
+    "decision": "PROMISE_TO_PAY merged into PTP (co-occurs with PTP across all 3 schema versions evenly -> synonym, not a version-specific code)"
+  },
+  "whatsapp_events": {
+    "raw_rows": 60600,
+    "exact_duplicate_rows_removed": 600,
+    "golden_rows": 60000
+  },
+  "sms_events": {
+    "raw_rows": 45000,
+    "exact_duplicate_rows_removed": 0,
+    "golden_rows": 45000
+  },
+  "field_visits": {
+    "raw_rows": 25000,
+    "exact_duplicate_rows_removed": 0,
+    "golden_rows": 25000
+  },
+  "promises_to_pay": {
+    "raw_rows": 18000,
+    "exact_duplicate_rows_removed": 0,
+    "golden_rows": 18000
+  },
+  "complaints": {
+    "raw_rows": 8000,
+    "exact_duplicate_rows_removed": 0,
+    "golden_rows": 8000
+  },
+  "account_status_history": {
+    "raw_rows": 60000,
+    "exact_duplicate_rows_removed": 0,
+    "golden_rows": 60000
+  },
+  "agent_sessions": {
+    "raw_rows": 15000,
+    "exact_duplicate_rows_removed": 0,
+    "golden_rows": 15000
+  },
+  "daily_targeting": {
+    "raw_rows": 45000,
+    "exact_duplicate_rows_removed": 0,
+    "golden_rows": 45000
+  },
+  "campaigns": {
+    "raw_rows": 120,
+    "exact_duplicate_rows_removed": 0,
+    "golden_rows": 120
+  },
+  "vendor_telephony": {
+    "raw_rows": 15,
+    "golden_rows": 15
+  },
+  "worked_population": {
+    "total_account_month_pairs": 164818,
+    "unique_accounts_ever_worked": 29996
+  }
+}
